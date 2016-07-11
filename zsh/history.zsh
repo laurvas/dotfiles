@@ -1,6 +1,6 @@
 HISTFILE=~/.zhistory
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=3000
+SAVEHIST=3000
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS # remove blank lines from history file
@@ -8,6 +8,5 @@ setopt HIST_REDUCE_BLANKS # remove blank lines from history file
 setopt HIST_IGNORE_SPACE
 # append every single command to $HISTFILE immediately after hitting ENTER
 setopt INC_APPEND_HISTORY
-# shares the histories of multiple Z-Shells; commands from one active Zsh are
-# then placed in the other shell's history
-setopt SHARE_HISTORY
+# history sharng is needed too rarely to keep it enabled. Instead use "fc -R" to read history file when you need to enter command from other termianl.
+unsetopt SHARE_HISTORY

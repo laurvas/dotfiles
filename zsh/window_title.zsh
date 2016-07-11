@@ -8,6 +8,7 @@ termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)te
             print -Pn "\e]0;%~\a"   # regular user
         fi
     }
+
     preexec ()
     {
         if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" || $EUID == 0 ]]; then

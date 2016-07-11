@@ -1,0 +1,65 @@
+# ansi alarm
+sleep 5s; echo $'\a'
+# best compression
+7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on $dir.7z $dir
+# fast compression
+7z a -t7z -m0=lzma -mx=1 -ms=on $dir.7z $dir
+# list all keybindings
+bindkey -L
+chromium --incognito
+date -u --date="+100days"
+du -sh * | sort -hr | head
+# disk usage of hidden objects in current directory
+du -sh .[^.]&* | sort -hr | head
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+# create big empty file
+fallocate -l 1024M $file || dd if=/dev/zero of=$file bs=1M count=1024
+# read history file
+fc -R
+curl ifconfig.me
+git branch -a
+# rename current branch
+git branch -m $NEW_BRANCH_NAME
+# delete branch
+git branch -d $BRANCH
+git chekout -- $branchname
+git commit --amend
+git log --stat --graph
+git log -p
+# show only uncommented strings in file (useful for configs)
+grep -v '^#' $file | grep .
+gvfs-mount -d $device
+gvfs-mount -u $mountpoint
+ip addr show eth0 | grep inet
+# show wireless access points
+iw list
+kill -9 %1
+kill -SIGHUP %1
+kill -SIGINT %1
+kill -SIGTERM %1
+# scrollable dmesg
+dmesg --color=always | less -R
+mount | column -t
+mount | grep ^/dev | column -t
+mkdir -p /tmp/t && sudo mount /dev/sdb1 /tmp/t
+netstat -ln -t
+netstat -ln -u
+nslookup $domain_name || host $domain_name
+obxprop | grep "^_OB_APP"
+# show all user's processes
+ps u -U $user
+# every process running as root (real & effective ID)
+ps u -U root -u root
+pgrep $APPLICATION
+ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"
+ssh-copy-id -i $PUBKEY_FILE $SERVER
+# shows ssh connection latency
+time ssh $HOST true
+less +F $LOGFILE
+# show keycode and key name
+xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'
+# update X resources
+xrdb -merge ~/.Xresources
+VBoxManage list vms
+VBoxManage startvm $VM_NAME
+xrandr --output HDMI2 --primary --auto --output VGA1 --off --output HDMI1 --off

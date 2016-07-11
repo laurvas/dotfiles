@@ -6,6 +6,7 @@ if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
     fi
     # right prompt with hostname or bad smiley
     RPROMPT=$'%(?,%{\e[34m%}ssh %n@%m%{\e[0m%},%{\e[1;31m%}:(%{\e[0m%})'
+
 else # not SSH
     if [[ $EUID == 0 ]]; then
         PROMPT=$'%{\e[1;31m%}%~ %{\e[0m%}' # root
