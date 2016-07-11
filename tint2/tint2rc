@@ -1,0 +1,124 @@
+# Tint2 config file
+
+# Background definitions
+# ID 1 whole panel, taskbar, systray, clock
+rounded = 0
+border_width = 0
+background_color = #545454 100
+border_color = #FFFFFF 20
+
+# ID 2 active task
+rounded = 2
+border_width = 1
+background_color = #55FF55 12
+border_color = #88FF88 80
+
+# ID 3 unactive task
+rounded = 2
+border_width = 1
+background_color = #111111 50
+border_color = #FFFFFF 20
+
+# ID 4 iconified task
+rounded = 2
+border_width = 1
+background_color = #545454 50
+border_color = #FFFFFF 10
+
+# ID 5 tooltips
+rounded = 2
+border_width = 0
+background_color = #00FF00 7
+border_color = #FFFFFF 20
+
+# Panel
+panel_monitor = all
+panel_position = bottom center horizontal
+panel_size = 0 28
+panel_margin = 0 0
+panel_padding = 0 0 1
+panel_dock = 0
+wm_menu = 1
+panel_layer = top
+panel_background_id = 1
+
+# Panel Autohide
+autohide = 0
+autohide_show_timeout = 0.3
+autohide_hide_timeout = 2
+autohide_height = 2
+strut_policy = minimum
+
+# Taskbar
+taskbar_mode = multi_desktop
+taskbar_padding = 2 0 0
+taskbar_background_id = 1
+taskbar_active_background_id = 1
+
+# Tasks
+urgent_nb_of_blink = 80
+task_icon = 1
+task_text = 1
+task_centered = 0
+task_maximum_size = 618 22
+task_padding = 2 4
+task_background_id = 3
+task_active_background_id = 2
+task_urgent_background_id = 2
+task_iconified_background_id = 4
+
+# Task Icons
+task_icon_asb = 100 0 0
+task_active_icon_asb = 100 0 0
+task_urgent_icon_asb = 100 0 0
+task_iconified_icon_asb = 50 0 0
+
+# Fonts
+task_font = Sans 10
+task_font_color = #FFFFFF 80
+task_active_font_color = #FFFFFF 100
+task_urgent_font_color = #FFFFFF 80
+task_iconified_font_color = #FFFFFF 50
+font_shadow = 0
+
+# System Tray
+systray = 1
+systray_padding = 1 0 4
+systray_sort = ascending
+systray_background_id = 1
+systray_icon_size = 20
+systray_icon_asb = 70 0 0
+
+# Clock
+time1_format = %H:%M
+time1_font = sans 12
+clock_font_color = #FFFFFF 85
+clock_padding = 3 0
+clock_background_id = 1
+clock_lclick_command = gsimplecal
+
+# Tooltips
+tooltip = 1
+tooltip_padding = 8 4
+tooltip_show_timeout = 1
+tooltip_hide_timeout = 0.3
+tooltip_background_id = 1
+tooltip_font = sans 10
+tooltip_font_color = #FFFFFF 80
+
+# Mouse
+mouse_middle = none
+mouse_right = close
+mouse_scroll_up = none
+mouse_scroll_down = none
+
+# Battery
+battery = 1
+battery_low_status = 10
+battery_low_cmd = notify-send "battery low"
+battery_hide = 90
+bat1_font = sans 8
+bat2_font = sans 6
+battery_font_color = #FFFFFF 71
+battery_padding = 1 0
+battery_background_id = 0

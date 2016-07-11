@@ -1,0 +1,18 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# panel with clock and taskbar
+tint2 &
+# keyboard layout indicator
+(sleep 1s && sbxkb ) &
+# quake-style drop-down terminal
+(sleep 5s && ftjerm) &
+# multi-protocol messenger
+(sleep 12s && pidgin) &
+# I always need browser
+(sleep 15s && chromium) &
+# also some virtual machines
+(sleep 20s && virtualbox) &
