@@ -60,7 +60,7 @@ export WORDCHARS='_-' # symbols, that are a part of a word
 # prompt setup ---------------------------------------------------------
 if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
     # right prompt with hostname or bad smiley
-    RPROMPT=$'%(?,%{\e[34m%}ssh %n@%m%{\e[0m%},%{\e[31m%}:(%{\e[0m%})'
+    RPROMPT=$'%(?,%{\e[34m%}ssh %n@%m%{\e[0m%},%{\e[1;31m%}:(%{\e[0m%})'
     if [[ $EUID == 0 ]]; then
         PROMPT=$'%{\e[1;31m%}%~ %{\e[0m%}' # root
     else

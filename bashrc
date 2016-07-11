@@ -24,18 +24,30 @@ shopt -s histappend
 # useful when running multiple terminals
 PROMPT_COMMAND=`history -a`
 
-#do not add this commands into history
+# do not add this commands into history
 HISTIGNORE='ls:bg:fg:history'
 # ----------------------------------------------------------------------
 
 # change directory without typing cd
 shopt -s autocd
+# the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
 
 # prompt setup ---------------------------------------------------------
-PS1="$(if [[ ${EUID} == 0 ]]
-then echo '\[\033[01;31m\]\w'
-else echo '\[\033[01;32m\]\w'
-fi)\$([[ \$? != 0 ]] && echo \" \[\033[01;31m\]:(\")\[\033[00m\] "
+if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+    if [[ ${EUID} == 0 ]]; then
+        PS1="\[\033[01;31m\]\u@\h:\w\$([[ \$? != 0 ]] && echo \" \[\033[01;31m\]:(\")\[\033[00m\] "
+    else
+        PS1="\[\033[01;33m\]\u@\h:\w\$([[ \$? != 0 ]] && echo \" \[\033[01;31m\]:(\")\[\033[00m\] "
+    fi
+else  # not SSH
+    if [[ ${EUID} == 0 ]]; then
+        PS1="\[\033[01;31m\]\w\$([[ \$? != 0 ]] && echo \" \[\033[01;31m\]:(\")\[\033[00m\] "
+    else
+        PS1="\[\033[01;33m\]\w\$([[ \$? != 0 ]] && echo \" \[\033[01;31m\]:(\")\[\033[00m\] "
+    fi
+fi
 # ----------------------------------------------------------------------
 
 # window title setup ---------------------------------------------------
