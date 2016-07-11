@@ -8,5 +8,6 @@ setopt HIST_REDUCE_BLANKS # remove blank lines from history file
 setopt HIST_IGNORE_SPACE
 # append every single command to $HISTFILE immediately after hitting ENTER
 setopt INC_APPEND_HISTORY
-# history sharng is needed too rarely to keep it enabled. Instead use "fc -R" to read history file when you need to enter command from other termianl.
+# history sharng is needed too rarely to keep it enabled. Instead use "fc -R" to
+# read history file when you need to enter command from other termianl.
 unsetopt SHARE_HISTORY
