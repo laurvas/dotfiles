@@ -17,8 +17,8 @@ shopt -s checkwinsize
 # ignore duplicate commands
 HISTCONTROL=ignoreboth
 
-HISTFILESIZE=1000
-HISTSIZE=1000
+HISTFILESIZE=2000
+HISTSIZE=2000
 # Enable history appending instead of overwriting.
 shopt -s histappend
 # useful when running multiple terminals
@@ -32,7 +32,12 @@ HISTIGNORE='ls:bg:fg:history'
 shopt -s autocd
 # the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
+# Example: "ls **/*.png" is equal to "find . -name '*.png'"
 shopt -s globstar
+# correct typos in paths
+shopt -s cdspell
+# double <tab> keypress will be ignored with empty command
+shopt -s no_empty_cmd_completion
 
 # prompt setup ---------------------------------------------------------
 if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
@@ -45,7 +50,7 @@ else  # not SSH
     if [[ ${EUID} == 0 ]]; then
         PS1="\[\033[01;31m\]\w\$([[ \$? != 0 ]] && echo \" \[\033[01;31m\]:(\")\[\033[00m\] "
     else
-        PS1="\[\033[01;33m\]\w\$([[ \$? != 0 ]] && echo \" \[\033[01;31m\]:(\")\[\033[00m\] "
+        PS1="\[\033[01;32m\]\w\$([[ \$? != 0 ]] && echo \" \[\033[01;31m\]:(\")\[\033[00m\] "
     fi
 fi
 # ----------------------------------------------------------------------
