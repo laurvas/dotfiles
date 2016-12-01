@@ -72,7 +72,8 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lla='ll -A'
 alias grep='grep --colour=auto'
-which colordiff >/dev/null && alias diff='colordiff'
+hash colordiff 2>/dev/null && alias diff='colordiff'
+hash scp 2>/dev/null && alias scp='scp -r'
 # ----------------------------------------------------------------------
 
 # some nice functions --------------------------------------------------
