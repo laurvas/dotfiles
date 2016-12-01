@@ -8,6 +8,10 @@ sleep 5s; echo $'\a'
 bindkey -L
 chromium --incognito
 date -u --date="+100days"
+# make patch from diff
+diff -Naur file1 file2
+# scrollable dmesg
+dmesg --color=always | less -R
 du -sh * | sort -hr | head
 # disk usage of hidden objects in current directory
 du -sh .[^.]&* | sort -hr | head
@@ -37,8 +41,6 @@ kill -9 %1
 kill -SIGHUP %1
 kill -SIGINT %1
 kill -SIGTERM %1
-# scrollable dmesg
-dmesg --color=always | less -R
 mount | column -t
 mount | grep ^/dev | column -t
 mkdir -p /tmp/t && sudo mount /dev/sdb1 /tmp/t

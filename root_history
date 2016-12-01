@@ -1,4 +1,5 @@
 badblocks -vsw $PARTITION > badblocks_$PARTITION.log
+chroot ./ /usr/bin/env -i HOME=/root TERM="$TERM" /bin/bash --login
 ip link set eth0 up && dhcpcd eth0
 ip link set eth0 up && dhclient eth0
 iw dev wlan0 down
@@ -9,6 +10,7 @@ ip addr add 10.0.0.1/24 dev eth0
 ip addr del 10.0.0.1/24 dev eth0
 fdisk -lu /dev/sda
 mkdir /tmp/t && mount /dev/$VOLUME /tmp/t
+mount proc -t proc ./proc && mount sys -t sysfs ./sys && mount --bind /dev ./dev && mount --bind /dev/pts ./dev/pts
 lspci -vk
 # show all attached loop devices
 losetup -a
@@ -35,5 +37,6 @@ useradd -m -g users -s /usr/bin/zsh $USERNAME
 userdel $USERNAME
 # add user to group
 usermod -aG $GROUP $USER
+umount ./dev/pts && umount ./dev && umount ./sys && umount ./proc
 wpa_supplicant -B -D nl80211,wext -i wlan0 -c <(wpa_passphrase "$SSID" "$PASSPHRASE")
 
