@@ -1,25 +1,28 @@
+# remove trailing whitespaces and tabs in $FILE
+sed -i 's/[ \t]*$//g' $FILE
 # ansi alarm
 sleep 5s; echo $'\a'
 # best compression
 7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on $dir.7z $dir
 # fast compression
 7z a -t7z -m0=lzma -mx=1 -ms=on $dir.7z $dir
-# list all keybindings
+# zsh: list all keybindings
 bindkey -L
-chromium --incognito
 date -u --date="+100days"
 # make patch from diff
 diff -Naur file1 file2
-# scrollable dmesg
-dmesg --color=always | less -R
+# pretty dmesg
+dmesg -H
+# show 10 biggest objects in current directory
 du -sh * | sort -hr | head
 # disk usage of hidden objects in current directory
-du -sh .[^.]&* | sort -hr | head
+du -sh .[^.]&* | sort -hr
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 # create big empty file
-fallocate -l 1024M $file || dd if=/dev/zero of=$file bs=1M count=1024
-# read history file
+truncate -s 1024M $FILE
+# zsh: read history file
 fc -R
+# show your external IP address
 curl ifconfig.me
 git branch -a
 # rename current branch
@@ -32,31 +35,37 @@ git log --stat --graph
 git log -p
 # show only uncommented strings in file (useful for configs)
 grep -v '^#' $file | grep .
+# mount using GVFS
 gvfs-mount -d $device
+# umount using GVFS
 gvfs-mount -u $mountpoint
+# show ip address of specific network interface
 ip addr show eth0 | grep inet
 # show wireless access points
 iw list
-kill -9 %1
+kill -SIGKILL %1
 kill -SIGHUP %1
 kill -SIGINT %1
 kill -SIGTERM %1
 mount | column -t
 mount | grep ^/dev | column -t
 mkdir -p /tmp/t && sudo mount /dev/sdb1 /tmp/t
-netstat -ln -t
-netstat -ln -u
+# resolve domain name
 nslookup $domain_name || host $domain_name
+# show window properties for openbox WM
 obxprop | grep "^_OB_APP"
 # show all user's processes
 ps u -U $user
 # every process running as root (real & effective ID)
 ps u -U root -u root
+# find PID of an application
 pgrep $APPLICATION
+# generate SSH user keys
 ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-$(date -I)"
 ssh-copy-id -i $PUBKEY_FILE $SERVER
 # shows ssh connection latency
 time ssh $HOST true
+# like tail -f, but with less :)
 less +F $LOGFILE
 # show keycode and key name
 xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'

@@ -29,6 +29,10 @@ mkfs.ext4 -m 1 -cc $PARTITION -L $LABEL
 mkfs.vfat -F 32 $PARTITION
 # remount RO to RW
 mount $MOUNTPOINT -o remount,rw
+# show all TCP listened ports
+netstat -lntp
+# show all UDP listened ports
+netstat -lnup
 # backup system with rsync
 rsync -aEH --info=progress2 --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/var/cache/*","/home"} /* $BACKUP_FOLDER
 # mark first partition as bootable
