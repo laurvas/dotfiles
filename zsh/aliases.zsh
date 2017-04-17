@@ -4,12 +4,11 @@ alias la='ls -A --color=auto'
 alias lla='ll -A --color=auto -h'
 alias grep='grep --colour=auto'
 hash colordiff 2>/dev/null && alias diff='colordiff'
+
+alias rm='rm -r'
+alias cp='nocorrect cp -r'
 hash scp 2>/dev/null && alias scp='scp -r'
+alias mkdir='nocorrect mkdir -p'
 
 # don't try to correct typos
-alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
-alias cp='nocorrect cp'
-
-# aliases for file extensions
-alias -s txt=${EDITOR}
