@@ -7,6 +7,7 @@ termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)te
         else
             print -Pn "\e]0;%~\a"   # regular user
         fi
+        vcs_info
     }
 
     preexec ()
