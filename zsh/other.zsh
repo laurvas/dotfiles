@@ -3,6 +3,7 @@ path=(~/bin $path)
 
 setopt autocd      # change directory without typing cd
 setopt correctall  # correct typos
+test $SHLVL -eq 3 && setopt ignore_eof # close only nested shells using Ctrl+D
 setopt NO_BEEP
 
 # enable completion
