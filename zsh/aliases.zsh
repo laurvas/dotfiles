@@ -1,7 +1,7 @@
 alias ls='ls -F --color=auto'
-alias ll='ls -l --color=auto -h'
-alias la='ls -A --color=auto'
-alias lla='ll -A --color=auto -h'
+alias ll='ls -lh'
+alias la='ls -A'
+alias lla='ll -A'
 alias grep='grep --colour=auto'
 hash colordiff 2>/dev/null && alias diff='colordiff'
 
