@@ -12,3 +12,9 @@ autoload -U compinit && compinit
 # use arrow keys to navigate completion suggestions
 setopt menucomplete
 zstyle ':completion:*' menu select=1 _complete _ignored _approximate
+
+# enable autosuggestions https://github.com/zsh-users/zsh-autosuggestions
+AUTOSUG=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ $TERM != linux && -f $AUTOSUG ]]; then
+	source $AUTOSUG
+fi
