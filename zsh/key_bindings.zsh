@@ -16,10 +16,14 @@ case $TERM in
     rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color)
         bindkey '^[Od' emacs-backward-word # ctrl + left arrow
         bindkey '^[Oc' emacs-forward-word  # ctrl + right arrow
+	bindkey '^[[7~' beginning-of-line  # home
+	bindkey '^[[8~' end-of-line        # end
         ;;
     *)
         bindkey '^[[1;5D' emacs-backward-word # ctrl + left arrow
         bindkey '^[[1;5C' emacs-forward-word  # ctrl + right arrow
+	bindkey '^[[H' beginning-of-line  # home
+	bindkey '^[[F' end-of-line        # end
         ;;
 esac
 
